@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<br/><h1 align="center">Barangay System</h1><br/>
+		<br/><h3 align="center">Barangay System</h3><br/>
 		<div>
 			<h3>Website Introduction</h3>
 		</div>

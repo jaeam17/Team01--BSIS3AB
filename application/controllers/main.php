@@ -54,7 +54,7 @@ class Main extends CI_Controller{
 					redirect(base_url() . 'main/enter');
 				}
 				else{
-					redirect(base_url() . 'main/admin');
+					redirect(base_url() . 'main/admin_complaint');
 				}
 			}
 			else{
@@ -69,6 +69,15 @@ class Main extends CI_Controller{
 		}
 	}
 
+	public function logout(){
+
+		unset($_SESSION['id']);
+		unset($_SESSION['first_name']);
+		unset($_SESSION['last_name']);
+		unset($_SESSION['email']);
+		redirect(base_url() . 'main/login');
+	}
+
 	public function enter(){
 
 		// if($_SESSION['id'] != ''){
@@ -80,8 +89,10 @@ class Main extends CI_Controller{
 
 		//     redirect(base_url());
 		// }
-
-		$this->load->view("enter_home");
+		$consti_id = $_SESSION['id'];
+		$data["fetch_data"] = $this->main_model->fetch_data_announcement();
+		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$this->load->view("enter_home", $data);
 	}
 
 	public function complaint(){
@@ -132,15 +143,171 @@ class Main extends CI_Controller{
 		$this->load->view("admin_complaint", $data);
 	}
 
+	public function delete_complaint(){
+        
+    $id = $this->uri->segment(3);
+    $this->load->model("main_model");
+    $this->main_model->delete_complaint($id);
+    redirect(base_url() . "main/admin_complaint");
+  }
 
-	public function logout(){
-
-		unset($_SESSION['id']);
-		unset($_SESSION['first_name']);
-		unset($_SESSION['last_name']);
-		unset($_SESSION['email']);
-		redirect(base_url() . 'main/login');
+	public function events(){
+		$data["fetch_data"] = $this->main_model->fetch_data_announcement();
+		$this->load->view("events", $data);
 	}
+
+	public function delete_announcement(){
+        
+    $id = $this->uri->segment(3);
+    $this->load->model("main_model");
+    $this->main_model->delete_announcement($id);
+    redirect(base_url() . "main/events");
+  }
+
+	public function announcements(){
+
+		$this->form_validation->set_rules('announcement', 'Announcement', 'required');
+		$this->form_validation->set_rules('title', 'Title', 'required');
+
+		if($this->form_validation->run()){
+
+			$description = $_POST['announcement'];
+			$title = $_POST['title'];
+
+			$data = array(
+				"title"							=>$title,
+				"description"			=>$description
+			);
+
+			$this->load->model('main_model');
+			if($this->main_model->enter_announcement($data)){
+
+				$_SESSION['success'] = 'Announcement successfully created';
+				redirect(base_url() . "main/events");
+			}
+
+		}
+		else{
+			$_SESSION['error'] = 'Please type the Announcement and Title';
+			redirect(base_url() . "main/events");
+		}
+	}
+
+	public function permit(){
+		$this->load->view("permit");
+	}
+
+	public function permit_validation(){
+
+		$this->form_validation->set_rules('bus_name', 'Business Name', 'required');
+			$this->form_validation->set_rules('bus_address', 'Business Address', 'required');
+			$this->form_validation->set_rules('bus_nature', 'Business Nature', 'required');
+			$this->form_validation->set_rules('email', 'Email Address', 'required');
+			$this->form_validation->set_rules('ownership_type', 'Ownership Type', 'required');
+			$this->form_validation->set_rules('bir_tin', 'BIR TIN', 'required');
+			$this->form_validation->set_rules('date', 'Date', 'required');
+
+			if($this->form_validation->run()){
+				//True
+				$bsn_option = $_POST['flexRadioDefault'];
+				$bsn_name = $_POST['bus_name'];
+				$bsn_address = $_POST['bus_address'];
+				$bsn_nature = $_POST['bus_nature'];
+				$email = $_POST['email'];
+				$type_owner = $_POST['ownership_type'];
+				$bir_tin = $_POST['bir_tin'];
+				$date = $_POST['date'];
+				$consti_id = $_SESSION['id'];
+				$first_name = $_SESSION['first_name'];
+				$last_name = $_SESSION['last_name'];
+
+				$data = array(
+					"consti_id"            =>$consti_id,
+					"first_name"           =>$first_name,
+					"last_name"             =>$last_name,
+					"email"            =>$email,
+					"bsn_option"         =>$bsn_option,
+					"bsn_name"          =>$bsn_name,
+					"bsn_address"              =>$bsn_address,
+					"bsn_nature"              =>$bsn_nature,
+					"type_owner"         =>$type_owner,
+					"bir_tin"     =>$bir_tin,
+					"date"           =>$date
+				);
+				$this->load->model('main_model');
+				if($this->main_model->apply_permit($data)){
+
+					$_SESSION['success'] = 'Submit Successfull';
+					redirect(base_url() . 'main/permit');
+				}
+			}
+			else{
+				//False
+				$this->permit();
+			}
+		
+	}
+
+	public function admin_permit(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data"] = $this->main_model->permit_datas($id);
+    $data["fetch_data"] = $this->main_model->fetch_data_permit();
+		$this->load->view("admin_permit", $data);
+	}
+	
+	public function permit_data(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data"] = $this->main_model->permit_datas($id);
+    $data["fetch_data"] = $this->main_model->fetch_data_permit();
+		$this->load->view("admin_permit", $data);
+
+	}
+
+	public function permit_approve(){
+
+		$id = $this->uri->segment(3);
+		$permit_status = $this->uri->segment(4);
+		$this->main_model->permit_status($id, $permit_status);
+		$data["consti_data"] = $this->main_model->permit_datas($id);
+    $data["fetch_data"] = $this->main_model->fetch_data_permit();
+		$this->load->view("admin_permit", $data);
+	}
+
+	public function permit_response(){
+
+		$this->form_validation->set_rules('response', 'Response', 'required');
+
+		if($this->form_validation->run()){
+
+			$consti_id = $this->uri->segment(3);
+			$id = $this->uri->segment(5);
+			$type = $this->uri->segment(4);
+			$response = $_POST['response'];
+
+			if($type == "Permit"){
+				$type = "Business Permit";
+				$response_data = array(
+					"consti_id" => $consti_id,
+					"response_type" => $type,
+					"response" => $response
+				);
+			}
+			$this->main_model->permit_response($response_data, $type);
+			$data["consti_data"] = $this->main_model->permit_datas($id);
+			$data["fetch_data"] = $this->main_model->fetch_data_permit();
+			$this->load->view("admin_permit", $data);
+
+		}else{
+			$id = $this->uri->segment(5);
+			$data["consti_data"] = $this->main_model->permit_datas($id);
+			$data["fetch_data"] = $this->main_model->fetch_data_permit();
+			$this->load->view("admin_permit", $data);
+		}
+	}
+
+
 
 	public function register(){
 

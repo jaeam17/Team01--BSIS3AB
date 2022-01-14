@@ -29,6 +29,20 @@
 
 		<h3 align="center">Barangay Business Permit Application</h3>
 
+		<form action="<?php echo base_url(); ?>main/permit_validation" method="post">
+			<?php if(isset($_SESSION['success'])){ ?>
+				<div class="alert alert-success" role="alert">
+					<?php echo $_SESSION['success']; ?>
+					<?php unset($_SESSION['success']); ?>
+				</div>
+			<?php   } ?>
+			<?php if(isset($_SESSION['error'])){ ?>
+				<div class="alert alert-danger" role="alert">
+					<?php echo $_SESSION['error']; ?>
+					<?php unset($_SESSION['error']); ?>
+				</div>
+			<?php   } ?>
+
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="New Business">
 				<label class="form-check-label" for="flexRadioDefault1">New Business</label>
