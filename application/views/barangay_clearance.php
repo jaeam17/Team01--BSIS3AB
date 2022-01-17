@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container">
-		<br/><h3 align="left">Barangay System</h3><br/>
+		<br/><h3 align="center">Barangay System</h3><br/>
 		<h4><?php echo "Welcome "?><b><?php echo $_SESSION['email']; ?></b></h4>
 		<div class="form-group">
 			<a href="<?php echo base_url(); ?>main/logout" class="btn btn-primary">Logout</a>
