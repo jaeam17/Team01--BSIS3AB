@@ -68,7 +68,7 @@
 }
 </style>
 <body style="background-color: #deeaee;">
-	<nav class="navbar navbar-dark bg-primary" style="padding: 8px 10px 8px 10px;">
+	<nav class="navbar navbar-expand-lg bg-primary" style="padding: 8px 10px 8px 10px;">
 		<a class="navbar-brand" href="#">
 			<img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/270834830_2320468918800644_3317073648450209240_n.png?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHjYrMAjyAuSiBUTgxXmDXeg8wqJ503do6DzConnTd2jpE4_Lxo3PQcNdQgrsHoWxfp0-bOJ37iYey-qR-_iq5u&_nc_ohc=U-wPebjzyNEAX8tcsXX&_nc_ht=scontent.fmnl4-3.fna&oh=03_AVJqRMJXxgwum1XZY_movfck-3vfA284flPuVRKpq1NkJg&oe=62100597" width="100" height="30" alt="Barangay">
 		</a>
