@@ -146,13 +146,13 @@
 			</form>
 		</div>
 	</nav>
-	
-	<div class="container">
-		<br/>
-		<div style="background-color: #d9d9d9; padding: 20px;">
-			<h3 align="center">Barangay Business Permit Application</h3>
 
-			<form action="<?php echo base_url(); ?>main/permit_validation" method="post">
+	<div class="container">
+		<br/>	
+		<div style="background-color: #d9d9d9; padding: 20px;">
+			<h3 align="center">Barangay Clearance Application</h3><br/>
+
+			<form action="<?php echo base_url(); ?>main/clearance_validation" method="post">
 				<?php if(isset($_SESSION['success'])){ ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $_SESSION['success']; ?>
@@ -165,57 +165,45 @@
 						<?php unset($_SESSION['error']); ?>
 					</div>
 				<?php   } ?>
-
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="New Business">
-					<label class="form-check-label" for="flexRadioDefault1">New Business</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Renewal" checked>
-					<label class="form-check-label" for="flexRadioDefault2">Renewal</label>
-				</div><br/>
-		
 				<div class="form-row">
 					<div class="form-group col-md-6" style="padding-left: 0px;">
-						<label>Business Name</label>
-						<input type="text" name="bus_name" class="form-control" placeholder="Business Name" required>
-						<span class="text-danger"><?php echo form_error('bus_name'); ?></span>
+						<label>Name</label>
+						<input type="text" name="name" class="form-control" placeholder="Surname, First Name, Middle Name, Extension e.g jr,III" required>
+						<span class="text-danger"><?php echo form_error('name'); ?></span>
 					</div>
 					<div class="form-group col-md-6" style="padding-left: 0px;">
-						<label>Business Address</label>
-						<input type="text" name="bus_address" class="form-control" placeholder="Street No./Street Name/Barangay/District/City" required>
+						<label> Address</label>
+						<input type="text" name="address" class="form-control" placeholder="Street No./Street Name/Barangay/District/City" required>
 						<span class="text-danger"><?php echo form_error('bus_address'); ?></span>
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-6" style="padding-left: 0px;">
-						<label>Nature of Business</label>
-						<input type="text" name="bus_nature" class="form-control" placeholder="e.g. Service/Merchandising/Manufacturing/etc." required>
-						<span class="text-danger"><?php echo form_error('bus_nature'); ?></span>
+					<div class="form-group col-md-3" style="padding-left: 0px;">
+						<label>Age</label>
+						<input type="text" name="age" class="form-control" placeholder="Age" required>
+						<span class="text-danger"><?php echo form_error('age'); ?></span>
 					</div>
-					<div class="form-group col-md-6" style="padding-left: 0px;">
-						<label>Email</label>
-						<input type="text" name="email" class="form-control" placeholder="Email" required>
-						<span class="text-danger"><?php echo form_error('email'); ?></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-4" style="padding-left: 0px;">
-						<label>Type of Ownership</label>
-						<input type="text" name="ownership_type" class="form-control" placeholder="e.g. Sole Proprietorship/Partnership/Corporation/etc." required>
-						<span class="text-danger"><?php echo form_error('ownership_type'); ?></span>
-					</div>
-					<div class="form-group col-md-4" style="padding-left: 0px;">
-						<label>BIR TIN</label>
-						<input type="text" name="bir_tin" class="form-control" placeholder="Tax Identification Number" required>
-						<span class="text-danger"><?php echo form_error('bir_tin'); ?></span>
-					</div>
-					<div class="form-group col-md-4" style="padding-left: 0px;">
-						<label>Date Applied</label>
+					<div class="form-group col-md-3" style="padding-left: 0px;">
+						<label>Date of Birth</label>
 						<input type="date" name="date" class="form-control" required>
 						<span class="text-danger"><?php echo form_error('date'); ?></span>
 					</div>
-				</div>
+					<div class="form-group col-md-3" style="padding-left: 0px;">
+							<label>Civil Status</label>
+							<select class="form-control" name="user_civil_status" required>
+								<option value="" disabled selected>...</option>
+								<option value="Single">Single</option>
+								<option value="Married">Married</option>
+								<option value="Widowed">Widowed</option>
+							</select>
+							<span class="text-danger"><?php echo form_error('user_civil_status'); ?></span>
+					</div>
+					<div class="form-group col-md-3" style="padding-left: 0px;">
+						<label>Purpose</label>
+						<input type="text" name="purpose" class="form-control" required>
+						<span class="text-danger"><?php echo form_error('purpose'); ?></span>
+					</div>
+				</div><br/>
 				<div class="form-group">
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -233,7 +221,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									Please wait for about 1-2 days for approval of your Barangay Business Permit.<br/> 
+									Please wait for about 1-2 days for approval of your Barangay Clearance.<br/> 
 									Always check your Message Inbox for the result.
 								</div>
 								<div class="modal-footer">

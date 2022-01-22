@@ -35,9 +35,11 @@
       <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Barangay Document eAPPLICATIONS 		<span class="caret"></span></button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 				<li><a class="dropdown-item" href="<?php echo base_url(); ?>main/admin_permit">Barangay Business Pemit</a></li>
-				<li><a class="dropdown-item" href="#">Barangay Clearance</a></li>
+				<li><a class="dropdown-item" href="<?php echo base_url(); ?>main/admin_clearance">Barangay Clearance</a></li>
 			</ul>
+      <a href="<?php echo base_url(); ?>main/admin_book_rent" class="btn btn-primary">Book a Rent</a>
 		</div>
+    
 
     <h3 align="center">Complaint</h3>
     <div class="table-responsive">

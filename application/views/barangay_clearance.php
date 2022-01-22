@@ -18,7 +18,7 @@
 		</div>
 		<br/>
 		<div class="dropdown btn-toolbar">
-			<a href="<?php echo base_url(); ?>main/enter" class="btn btn-primary">Home</a>
+			<a href="<?php echo base_url(); ?>main/home" class="btn btn-primary">Home</a>
 			<a href="<?php echo base_url(); ?>main/complaint" class="btn btn-primary">Complaint</a>
 			<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">Barangay Document eAPPLICATIONS 		<span class="caret"></span></button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

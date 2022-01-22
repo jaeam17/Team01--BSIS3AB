@@ -37,10 +37,10 @@
 				<li><a class="dropdown-item" href="<?php echo base_url(); ?>main/admin_permit">Barangay Business Pemit</a></li>
 				<li><a class="dropdown-item" href="<?php echo base_url(); ?>main/admin_clearance">Barangay Clearance</a></li>
 			</ul>
-      <a href="<?php echo base_url(); ?>main/admin_book_rent" class="btn btn-primary">Book a Rent</a>
+			<a href="<?php echo base_url(); ?>main/admin_book_rent" class="btn btn-primary">Book a Rent</a>
 		</div>
 
-    <h3 align="center">Barangay Business Permit</h3>
+    <h3 align="center">Barangay Clearance</h3>
 
     <div class="row">
       <div class="col-md-6">
@@ -50,20 +50,20 @@
 							<tr>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Email</th>
+								<th>Purpose</th>
 								<th>Status</th>
 							</tr>
 						</thead>
 						<?php
-							if($fetch_data->num_rows() > 0){
+							if($fetch_data1->num_rows() > 0){
 
-								foreach($fetch_data->result() as $row){
+								foreach($fetch_data1->result() as $row){
 						?>
 									<tbody>
 										<tr>
-                      <td><a href="<?php echo base_url(); ?>main/permit_data/<?php echo $row->id ?>"><?php echo $row->first_name; ?></a</td>
+                      <td><a href="<?php echo base_url(); ?>main/clearance_data/<?php echo $row->id ?>"><?php echo $row->first_name; ?></a</td>
 											<td><?php echo $row->last_name; ?></td>
-											<td><?php echo $row->email; ?></td>
+											<td><?php echo $row->purpose; ?></td>
 											<td><?php echo $row->status; ?></td>
 										</tr>
 									</tbody>
@@ -85,60 +85,43 @@
       </div>
 
       <div class="col-md-6" style="background-color: #F0E68C; height: 380px;">
-        <?php foreach($consti_data->result() as $row1){ ?>
-                <div class="row" style="padding-top: 5px;">
-                  <div class="col-md-3">
-                    <h4><?php echo $row1->first_name;?></h4>
-                    <h4><label>First Name</label></h4>
+        <?php foreach($consti_data1->result() as $row1){ ?>
+                <div class="row" style="padding-top: 20px;">
+                  <div class="col-md-5">
+                    <h4><?php echo $row1->name;?></h4>
+                    <h4><label>Name</label></h4>
                   </div>
                   <div class="col-md-3">
-                    <h4><?php echo $row1->last_name;?></h4>
-                    <h4><label>Last Name</label></h4>
+                    <h4><?php echo $row1->age;?></h4>
+                    <h4><label>Age</label></h4>
                   </div>
-                  <div class="col-md-6">
-                    <h4><?php echo $row1->email;?></h4>
-                    <h4><label>Email</label></h4>
+                  <div class="col-md-3">
+                    <h4><?php echo $row1->user_civil_status;?></h4>
+                    <h4><label>Civil Status</label></h4>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-3">
-                    <h4><?php echo $row1->bsn_name;?></h4>
-                    <h4><label>Business Name</label></h4>
+                <div class="row" style="padding-top: 5px; padding-bottom: 70px;">
+                  <div class="col-md-5">
+                    <h4><?php echo $row1->address;?></h4>
+                    <h4><label>Address</label></h4>
                   </div>
                   <div class="col-md-3">
-                    <h4><?php echo $row1->bsn_nature;?></h4>
-                    <h4><label>Business Nature</label></h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h4><?php echo $row1->type_owner;?></h4>
-                    <h4><label>Type Owner</label></h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h4><?php echo $row1->bir_tin;?></h4>
-                    <h4><label>BIR TIN</label></h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <h4><?php echo $row1->bsn_address;?></h4>
-                    <h4><label>Business Address</label></h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h4><?php echo $row1->bsn_option;?></h4>
-                    <h4><label>Type of Permit Application</label></h4>
+                    <h4><?php echo $row1->purpose;?></h4>
+                    <h4><label>Purpose</label></h4>
                   </div>
                   <div class="col-md-3">
                     <h4><?php echo $row1->date;?></h4>
                     <h4><label>Date</label></h4>
                   </div>
                 </div>
+  
                 <div class="btn-toolbar">
-                  <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/approve/permit" class="btn btn-success">Approve</a>
-			            <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/decline/permit" class="btn btn-danger">Decline</a>
+                  <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/approve/clearance" class="btn btn-success">Approve</a>
+			            <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/decline/clearance" class="btn btn-danger">Decline</a>
                 </div>
 
                 <div class="form-group-row" style="padding-top: 8px">
-                  <form action="<?php echo base_url(); ?>main/permit_response/<?php echo $row1->consti_id ?>/Permit/<?php echo $row1->id ?>" method="post">
+                  <form action="<?php echo base_url(); ?>main/permit_response/<?php echo $row1->consti_id ?>/Clearance/<?php echo $row1->id ?>" method="post">
                     <div class="col-md-10" style="padding-left: 0px;">
                       <input type="text" name="response" class="form-control" placeholder="Message this user.." required>
                     </div>

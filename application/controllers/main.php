@@ -21,7 +21,7 @@ class Main extends CI_Controller{
 	}
 
 	public function login(){
-		$this->load->view("login_view");
+		$this->load->view("home");
 	}
 
 	public function login_validation(){
@@ -51,7 +51,7 @@ class Main extends CI_Controller{
 
 				if($_SESSION['priveledge'] == "consti"){
 
-					redirect(base_url() . 'main/enter');
+					redirect(base_url() . 'main/home');
 				}
 				else{
 					redirect(base_url() . 'main/admin_complaint');
@@ -78,7 +78,7 @@ class Main extends CI_Controller{
 		redirect(base_url() . 'main/login');
 	}
 
-	public function enter(){
+	public function home(){
 
 		// if($_SESSION['id'] != ''){
 			
@@ -90,14 +90,16 @@ class Main extends CI_Controller{
 		//     redirect(base_url());
 		// }
 		$consti_id = $_SESSION['id'];
-		$data["fetch_data"] = $this->main_model->fetch_data_announcement();
 		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$data["fetch_data"] = $this->main_model->fetch_data_announcement();
 		$this->load->view("enter_home", $data);
 	}
 
 	public function complaint(){
 
-		$this->load->view("complaint");
+		$consti_id = $_SESSION['id'];
+		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$this->load->view("complaint", $data);
 	}
 
 	public function create_complaint(){
@@ -124,13 +126,13 @@ class Main extends CI_Controller{
 			if($this->main_model->enter_complaint($data)){
 
 				$_SESSION['success'] = 'Complaint sent successfully';
-				$this->load->view("complaint");
+				redirect(base_url() . "main/complaint");
 			}
 
 		}
 		else{
 			$_SESSION['error'] = 'Please type your Complaint';
-			$this->load->view("complaint");
+			redirect(base_url() . "main/complaint");
 		}
 	}
 
@@ -194,7 +196,10 @@ class Main extends CI_Controller{
 	}
 
 	public function permit(){
-		$this->load->view("permit");
+
+		$consti_id = $_SESSION['id'];
+		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$this->load->view("permit", $data);
 	}
 
 	public function permit_validation(){
@@ -269,10 +274,19 @@ class Main extends CI_Controller{
 
 		$id = $this->uri->segment(3);
 		$permit_status = $this->uri->segment(4);
-		$this->main_model->permit_status($id, $permit_status);
-		$data["consti_data"] = $this->main_model->permit_datas($id);
-    $data["fetch_data"] = $this->main_model->fetch_data_permit();
-		$this->load->view("admin_permit", $data);
+		$type_response = $this->uri->segment(5);
+		$this->main_model->permit_status($id, $permit_status, $type_response);
+		if($type_response == "permit"){
+
+			$data["consti_data"] = $this->main_model->permit_datas($id);
+			$data["fetch_data"] = $this->main_model->fetch_data_permit();
+			$this->load->view("admin_permit", $data);
+		}
+		else{
+			$data["consti_data1"] = $this->main_model->clearance_datas($id);
+			$data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+			$this->load->view("admin_clearance", $data);
+		}
 	}
 
 	public function permit_response(){
@@ -293,17 +307,208 @@ class Main extends CI_Controller{
 					"response_type" => $type,
 					"response" => $response
 				);
+				$this->main_model->permit_response($response_data, $type);
+				$data["consti_data"] = $this->main_model->permit_datas($id);
+				$data["fetch_data"] = $this->main_model->fetch_data_permit();
+				$this->load->view("admin_permit", $data);
 			}
-			$this->main_model->permit_response($response_data, $type);
-			$data["consti_data"] = $this->main_model->permit_datas($id);
-			$data["fetch_data"] = $this->main_model->fetch_data_permit();
-			$this->load->view("admin_permit", $data);
+			else{
+				$type = "Barangay Clearance";
+				$response_data = array(
+					"consti_id" => $consti_id,
+					"response_type" => $type,
+					"response" => $response
+				);
+				$this->main_model->permit_response($response_data, $type);
+				$data["consti_data1"] = $this->main_model->clearance_datas($id);
+				$data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+				$this->load->view("admin_clearance", $data);
+			}
 
 		}else{
 			$id = $this->uri->segment(5);
 			$data["consti_data"] = $this->main_model->permit_datas($id);
 			$data["fetch_data"] = $this->main_model->fetch_data_permit();
 			$this->load->view("admin_permit", $data);
+		}
+	}
+
+	public function clearance(){
+
+		$consti_id = $_SESSION['id'];
+		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$this->load->view("clearance", $data);
+	}
+
+	public function clearance_validation(){
+
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('address', 'Address', 'required');
+			$this->form_validation->set_rules('age', 'Age', 'required');
+			$this->form_validation->set_rules('date', 'Date', 'required');
+			$this->form_validation->set_rules('user_civil_status', 'Civil Status', 'required');
+			$this->form_validation->set_rules('purpose', 'Purpose', 'required');
+
+			if($this->form_validation->run()){
+				//True
+				$name = $_POST['name'];
+				$address = $_POST['address'];
+				$age = $_POST['age'];
+				$date = $_POST['date'];
+				$user_civil_status = $_POST['user_civil_status'];
+				$purpose = $_POST['purpose'];
+				$consti_id = $_SESSION['id'];
+				$first_name = $_SESSION['first_name'];
+				$last_name = $_SESSION['last_name'];
+
+				$data = array(
+					"consti_id"              =>$consti_id,
+					"first_name"              =>$first_name,
+					"last_name"         =>$last_name,
+					"name"            =>$name,
+					"address"           =>$address,
+					"age"             =>$age,
+					"user_civil_status"         =>$user_civil_status,
+					"purpose"          =>$purpose,
+					"date"            =>$date,
+				);
+				$this->load->model('main_model');
+				if($this->main_model->apply_clearance($data)){
+
+					$_SESSION['success'] = 'Submit Successfull';
+					redirect(base_url() . 'main/clearance');
+				}
+			}
+			else{
+				//False
+				$this->clearance();
+			}
+	}
+
+	public function admin_clearance(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data1"] = $this->main_model->clearance_datas($id);
+    $data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+		$this->load->view("admin_clearance", $data);
+	}
+
+	public function clearance_data(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data1"] = $this->main_model->clearance_datas($id);
+    $data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+		$this->load->view("admin_clearance", $data);
+	}
+
+	public function rent(){
+
+		$consti_id = $_SESSION['id'];
+		$data["fetch_inbox"] = $this->main_model->fetch_inbox($consti_id);
+		$data["fetch_data"] = $this->main_model->fetch_unavailable_rent();
+		$this->load->view("book_a_rent", $data);
+	}
+
+	public function rent_validation(){
+
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('address', 'Address', 'required');
+			$this->form_validation->set_rules('resources', 'Resources', 'required');
+			$this->form_validation->set_rules('purpose', 'Purpose', 'required');
+			$this->form_validation->set_rules('hours', 'Hours', 'required');
+			$this->form_validation->set_rules('date', 'Date', 'required');
+
+			if($this->form_validation->run()){
+				//True
+				$name = $_POST['name'];
+				$address = $_POST['address'];
+				$resources = $_POST['resources'];
+				$purpose = $_POST['purpose'];
+				$hours = $_POST['hours'];
+				$date = $_POST['date'];
+				$consti_id = $_SESSION['id'];
+				$first_name = $_SESSION['first_name'];
+				$last_name = $_SESSION['last_name'];
+
+				$data = array(
+					"consti_id"              =>$consti_id,
+					"first_name"              =>$first_name,
+					"last_name"         =>$last_name,
+					"name"            =>$name,
+					"address"           =>$address,
+					"resources"             =>$resources,
+					"purpose"             =>$purpose,
+					"hours"         =>$hours,
+					"date"            =>$date
+				);
+				$this->load->model('main_model');
+				if($this->main_model->book_a_rent($data)){
+
+					$_SESSION['success'] = 'Submit Successfull';
+					redirect(base_url() . 'main/rent');
+				}
+				else{
+					$_SESSION['error'] = 'Book Unavailable';
+					redirect(base_url() . "main/rent");
+				}
+			}
+			else{
+				//False
+				$this->rent();
+			}
+	}
+
+	public function admin_book_rent(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data"] = $this->main_model->rent_data($id);
+    $data["fetch_data"] = $this->main_model->fetch_data_rent();
+		$this->load->view("admin_book_rent", $data);
+	}
+
+	public function rent_data(){
+
+		$id = $this->uri->segment(3);
+		$data["consti_data"] = $this->main_model->rent_data($id);
+    $data["fetch_data"] = $this->main_model->fetch_data_rent();
+		$this->load->view("admin_book_rent", $data);
+	}
+
+	public function admin_rent_approve(){
+
+		$id = $this->uri->segment(3);
+		$permit_status = $this->uri->segment(4);
+		$this->main_model->rent_status($id, $permit_status);
+		$data["consti_data"] = $this->main_model->rent_data($id);
+		$data["fetch_data"] = $this->main_model->fetch_data_rent();
+		$this->load->view("admin_book_rent", $data);
+	}
+
+	public function rent_response(){
+
+		$this->form_validation->set_rules('response', 'Response', 'required');
+
+		if($this->form_validation->run()){
+
+			$consti_id = $this->uri->segment(3);
+			$response = $_POST['response'];
+			$type = "Book a Rent";
+			$response_data = array(
+				"consti_id" => $consti_id,
+				"response_type" => $type,
+				"response" => $response
+			);
+			$this->main_model->rent_response($response_data);
+			$id = $this->uri->segment(4);
+			$data["consti_data"] = $this->main_model->rent_data($id);
+    	$data["fetch_data"] = $this->main_model->fetch_data_rent();
+			$this->load->view("admin_book_rent", $data);
+
+		}else{
+			$id = $this->uri->segment(4);
+			$data["consti_data"] = $this->main_model->rent_data($id);
+    	$data["fetch_data"] = $this->main_model->fetch_data_rent();
+			$this->load->view("admin_book_rent", $data);
 		}
 	}
 
@@ -365,7 +570,7 @@ class Main extends CI_Controller{
 			}
 			else{
 
-				$_SESSION['error'] = 'Email already registered';
+				$_SESSION['error1'] = 'Email already registered';
 				redirect(base_url() . 'main/register');
 			}
 		}
