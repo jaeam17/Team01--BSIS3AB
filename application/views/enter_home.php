@@ -68,7 +68,7 @@
 }
 </style>
 <body style="background-color: #deeaee;">
-	<nav class="navbar navbar-expand-lg bg-primary" style="padding: 8px 10px 8px 10px;">
+	<nav class="navbar navbar-dark bg-primary" style="padding: 8px 10px 8px 10px;">
 		<a class="navbar-brand" href="#">
 			<img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/270834830_2320468918800644_3317073648450209240_n.png?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHjYrMAjyAuSiBUTgxXmDXeg8wqJ503do6DzConnTd2jpE4_Lxo3PQcNdQgrsHoWxfp0-bOJ37iYey-qR-_iq5u&_nc_ohc=U-wPebjzyNEAX8tcsXX&_nc_ht=scontent.fmnl4-3.fna&oh=03_AVJqRMJXxgwum1XZY_movfck-3vfA284flPuVRKpq1NkJg&oe=62100597" width="100" height="30" alt="Barangay">
 		</a>
@@ -219,19 +219,15 @@
 				<div class="row">
 					<div class="col-sm" style="padding-top: 10px; background-color: white; margin-top: 20px;">
 						<h4 style="color: #7c0a02;">Mission</h4>
-						<p class="small text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> is the first barangay established in Poblacion. The development, which started in 1980, was undertaken in three phases. The village boundaries are: Madrigal Street, Montemayor Street, Miranda Street, Mandeja Street, EDSA, Kalayaan Avenue. The total land area of Barangay Monteverde is 80.4722 hectares, of which 68.6774 hectares is subdivided into 980 residential lots.<br/>
-						All properties located in the open (not fenced in) perimeter roads have been converted to controlled commercial zones. Consequently, a height restriction of 12 meters for edifices constructed along Madrigal Street is allowed, compared to only nine meters for residential houses inside the barangay.  The other perimeter roads converted to commercial zones retain the nine-meter height limitation.<br/>
-						The significant commercial streets are Madrigal, Montemayor, Mandeja Streets. (While various commercial areas) restaurants are the predominant establishments along Barangay Monteverde perimeter roads.<br/>
-						The barangay has one open space park in Phase I. The Association and Barangay offices are in the Phase II. The park in the Phase I has an open air basketball court, playground equipment, and a pavilion. While Phase II has a conference pavilion, and a employees' cooperative canteen.</p>
+						<p class="small text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> We commit to perform better duties and responsibilities to carry out the plans and objectives of the barangay thru voluntary 
+						and excellent performance, most especially in the delivery of the basic needs such as improved roads and environment, water system, health care, education, housing and agricultural farming needs of the farmers and residents of the barangay.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm" style="padding-top: 10px; background-color: white; margin: 20px 0px 20px 0px;">
 						<h4 style="color: #7c0a02;">Vision</h4>
-						<p class="text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> is the first barangay established in Poblacion. The development, which started in 1980, was undertaken in three phases. The village boundaries are: Madrigal Street, Montemayor Street, Miranda Street, Mandeja Street, EDSA, Kalayaan Avenue. The total land area of Barangay Monteverde is 80.4722 hectares, of which 68.6774 hectares is subdivided into 980 residential lots.<br/>
-						All properties located in the open (not fenced in) perimeter roads have been converted to controlled commercial zones. Consequently, a height restriction of 12 meters for edifices constructed along Madrigal Street is allowed, compared to only nine meters for residential houses inside the barangay.  The other perimeter roads converted to commercial zones retain the nine-meter height limitation.<br/>
-						The significant commercial streets are Madrigal, Montemayor, Mandeja Streets. (While various commercial areas) restaurants are the predominant establishments along Barangay Monteverde perimeter roads.<br/>
-						The barangay has one open space park in Phase I. The Association and Barangay offices are in the Phase II. The park in the Phase I has an open air basketball court, playground equipment, and a pavilion. While Phase II has a conference pavilion, and a employees' cooperative canteen.</p>
+						<p class="text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b>envisions the Barangay to be more progressive, loving and peaceful place to live in 
+						where people and residents enjoy harmonious way of life, business, at work and at home, and most especially for a more directed and progressive Barangay Governance..</p>
 					</div>
 				</div>
 
