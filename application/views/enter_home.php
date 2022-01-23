@@ -22,6 +22,10 @@
 	p {
 		font-family: 'lato', serif;
 	}
+	.navbar-custom {
+    background-color: #004AAD;
+	}
+
 	.navbar-expand-lg .navbar-nav .nav-link {
 		padding-right: 0;
 		padding-left: 0;
@@ -68,7 +72,7 @@
 }
 </style>
 <body style="background-color: #deeaee;">
-	<nav class="navbar navbar-expand-lg bg-primary" style="padding: 8px 10px 8px 10px;">
+<nav class="navbar navbar-expand-sm navbar-custom" style="padding: 8px 10px 8px 10px;">
 		<a class="navbar-brand" href="#">
 			<img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/270834830_2320468918800644_3317073648450209240_n.png?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHjYrMAjyAuSiBUTgxXmDXeg8wqJ503do6DzConnTd2jpE4_Lxo3PQcNdQgrsHoWxfp0-bOJ37iYey-qR-_iq5u&_nc_ohc=U-wPebjzyNEAX8tcsXX&_nc_ht=scontent.fmnl4-3.fna&oh=03_AVJqRMJXxgwum1XZY_movfck-3vfA284flPuVRKpq1NkJg&oe=62100597" width="100" height="30" alt="Barangay">
 		</a>
@@ -156,13 +160,13 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active" style="height: 550px;">
-					<img class="d-block w-100" src="https://z-p3-cdn.fbsbx.com/v/t59.2708-21/272190764_1089770481822240_5153769293860812755_n.gif?_nc_cat=102&fallback=1&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeGDW2slqWrcyIktCzE-IJmx7h1HInfhEzXuHUcid-ETNaKGd8urkRJPEeOXQakfcdXT900fKPXeU-hsvSsb-cQ9&_nc_ohc=q4_6szzV7V8AX_8zTAs&_nc_ht=z-p3-cdn.fbsbx.com&oh=03_AVLvuJL-c2rYFKCrGOXO7uKpbscsJI7F5A6kVu4KYW3Tzg&oe=61ECE503" alt="First slide">
+					<img class="d-block w-100" src="https://cdn.fbsbx.com/v/t59.2708-21/271757504_417668306759369_1631070316649979634_n.gif?_nc_cat=108&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeHVdjSTXj02ULR9cHdC7rT3sX4wGI4xm3WxfjAYjjGbdb8CPHKUPZdfT_X0gkZi9d_7L-cSTLtG2-I6A4RcQI9J&_nc_ohc=VdgTYYpcTfkAX8I3esd&_nc_oc=AQn71RJbEL6m51vjBNiOl77LEF6sMqHCtrHlFozwMg-I8kygkWoZ142V_5LkpB3WPV4&_nc_ht=cdn.fbsbx.com&oh=03_AVLT2TlFr008j069bNK8RdFlm9uNq-VAsUmLSZsrbNmiVA&oe=61EF1375" alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
-					<img class="d-block w-100 img-responsive" src="https://z-p3-cdn.fbsbx.com/v/t59.2708-21/271862504_2024349584391985_6369319495823489494_n.gif?_nc_cat=101&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeHgf_gzjGPfaNGj94XKfjDxuFGr7v76gLm4Uavu_vqAuSc-c4Zv_LX02bvyYcCasLEBns6m6EVcuBaeXSGm1YUd&_nc_ohc=fRUMGI-AXFIAX81w4a4&_nc_ht=z-p3-cdn.fbsbx.com&oh=03_AVJfWhGqQLs28vWAhlyPw7hqEn4rn9ry1poWQqfHRuQ5uw&oe=61ED56A4" alt="Second slide">
+					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271904333_1142611166277059_5320836333678772910_n.gif?_nc_cat=110&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeEzmiSubFsU4LwJDFbG0TuQsO-Dmgat3UGw74OaBq3dQduSZ2ZZpaOPaLA5WTf6QENxiggXFEQNDigGFjP0cNru&_nc_ohc=sVrTIJ30t9UAX9zfppQ&tn=WXt5rCAgNWJXHn1P&_nc_ht=cdn.fbsbx.com&oh=03_AVIT801bpgKeWRU_VT0IGevj10736YT0uZDpIpLIZE1g_g&oe=61EED81E" alt="Second slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
-					<img class="d-block w-100 img-responsive" src="<?php echo base_url(); ?>images/start-up3.jpg" alt="Third slide">
+					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271836989_635090187545733_7506888254760737878_n.gif?_nc_cat=107&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeHjK5U2LkjIitfprO0JFggCz4dJjVh4JiLPh0mNWHgmIiBKBxFUbO7Rqbg4f9pbXC2nwhJNzo146hNeTLOgmWQY&_nc_ohc=pRzxWWYdXBQAX9uBZ9G&_nc_ht=cdn.fbsbx.com&oh=03_AVJxbEcE8qxduEjeCIQBSWfuBVuclgu7TZA2stEQuxw3YA&oe=61EF5E6F" alt="Third slide">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
