@@ -223,14 +223,14 @@
 				<div class="row">
 					<div class="col-sm" style="padding-top: 10px; background-color: white; margin-top: 20px;">
 						<h4 style="color: #7c0a02;">Mission</h4>
-						<p class="small text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> We commit to perform better duties and responsibilities to carry out the plans and objectives of the barangay thru voluntary 
+						<p class="small text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> commits to perform better duties and responsibilities to carry out the plans and objectives of the barangay thru voluntary 
 						and excellent performance, most especially in the delivery of the basic needs such as improved roads and environment, water system, health care, education, housing and agricultural farming needs of the farmers and residents of the barangay.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm" style="padding-top: 10px; background-color: white; margin: 20px 0px 20px 0px;">
 						<h4 style="color: #7c0a02;">Vision</h4>
-						<p class="text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b>envisions the Barangay to be more progressive, loving and peaceful place to live in 
+						<p class="text-justify" style="font-size: 17px;"><b>Barangay Monteverde</b> envisions the Barangay to be more progressive, loving and peaceful place to live in 
 						where people and residents enjoy harmonious way of life, business, at work and at home, and most especially for a more directed and progressive Barangay Governance..</p>
 					</div>
 				</div>
