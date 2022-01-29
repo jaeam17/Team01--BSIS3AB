@@ -160,7 +160,12 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active" style="height: 550px;">
-					<img class="d-block w-100" src="https://cdn.fbsbx.com/v/t59.2708-21/271757504_417668306759369_1631070316649979634_n.gif?_nc_cat=108&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeHVdjSTXj02ULR9cHdC7rT3sX4wGI4xm3WxfjAYjjGbdb8CPHKUPZdfT_X0gkZi9d_7L-cSTLtG2-I6A4RcQI9J&_nc_ohc=VdgTYYpcTfkAX8I3esd&_nc_oc=AQn71RJbEL6m51vjBNiOl77LEF6sMqHCtrHlFozwMg-I8kygkWoZ142V_5LkpB3WPV4&_nc_ht=cdn.fbsbx.com&oh=03_AVLT2TlFr008j069bNK8RdFlm9uNq-VAsUmLSZsrbNmiVA&oe=61EF1375" alt="First slide">
+					<img class="d-block w-100" echo "<img src='images/image-name.JPG' >";
+					<?php
+ 
+						echo "<img src='img_carousel1.gif' >"; 
+
+ 					?>    alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
 					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271904333_1142611166277059_5320836333678772910_n.gif?_nc_cat=110&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeEzmiSubFsU4LwJDFbG0TuQsO-Dmgat3UGw74OaBq3dQduSZ2ZZpaOPaLA5WTf6QENxiggXFEQNDigGFjP0cNru&_nc_ohc=sVrTIJ30t9UAX9zfppQ&tn=WXt5rCAgNWJXHn1P&_nc_ht=cdn.fbsbx.com&oh=03_AVIT801bpgKeWRU_VT0IGevj10736YT0uZDpIpLIZE1g_g&oe=61EED81E" alt="Second slide">
