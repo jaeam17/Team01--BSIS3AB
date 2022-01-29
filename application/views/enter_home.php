@@ -166,7 +166,7 @@
 					<img class="d-block w-100" src= "<?php echo base_url(); ?>images/img_carousel2.gif" alt="Second slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
-					<img class="d-block w-100" src=<?php echo base_url(); ?>images/img_carousel3.gif" alt="Third slide">
+					<img class="d-block w-100" src= "<?php echo base_url(); ?>images/img_carousel3.gif" alt="Third slide">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
