@@ -101,7 +101,7 @@
 				</li>
 			</ul>
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="margin-right: 10px;">
 				<img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.15752-9/272201367_471247244439772_6526739748527625727_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGeTVMenle2pD5SaOoC4P7MsIH9d3l36h-wgf13eXfqH58705ubLYshfn7SH4g0FyABT2IFnaAuUcAH6U7FwyE5&_nc_ohc=Mp-6EfspNR8AX9N0yYu&_nc_ht=scontent.fmnl4-1.fna&oh=03_AVKm2AWTaEegBP6OP_4puQMLsNp1w4pYqteom4brwBTvfQ&oe=620FFABB" width="50" height="30" alt="Messages">
 			</button>
 
@@ -160,13 +160,13 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active" style="height: 550px;">
-					<img class="d-block w-100" src= <?php echo images/"img_carousel1.gif"; ?> alt="First slide">
+					<img class="d-block w-100" src="<?php echo base_url(); ?>images/img_carousel1.gif" alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
-					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271904333_1142611166277059_5320836333678772910_n.gif?_nc_cat=110&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeEzmiSubFsU4LwJDFbG0TuQsO-Dmgat3UGw74OaBq3dQduSZ2ZZpaOPaLA5WTf6QENxiggXFEQNDigGFjP0cNru&_nc_ohc=sVrTIJ30t9UAX9zfppQ&tn=WXt5rCAgNWJXHn1P&_nc_ht=cdn.fbsbx.com&oh=03_AVIT801bpgKeWRU_VT0IGevj10736YT0uZDpIpLIZE1g_g&oe=61EED81E" alt="Second slide">
+					<img class="d-block w-100 img-responsive" src="<?php echo base_url(); ?>images/img_carousel2.gif" alt="Second slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
-					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271836989_635090187545733_7506888254760737878_n.gif?_nc_cat=107&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeHjK5U2LkjIitfprO0JFggCz4dJjVh4JiLPh0mNWHgmIiBKBxFUbO7Rqbg4f9pbXC2nwhJNzo146hNeTLOgmWQY&_nc_ohc=pRzxWWYdXBQAX9uBZ9G&_nc_ht=cdn.fbsbx.com&oh=03_AVJxbEcE8qxduEjeCIQBSWfuBVuclgu7TZA2stEQuxw3YA&oe=61EF5E6F" alt="Third slide">
+					<img class="d-block w-100 img-responsive" src="<?php echo base_url(); ?>images/img_carousel3.gif" alt="Third slide">
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -186,7 +186,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm scrollable" style="background-color: #FAFDF3; height: 920px;">
+					<div class="col-sm scrollable" style="background-color: #FAFDF3; height: 550px;">
 						<?php
 								if($fetch_data->num_rows() > 0){
 

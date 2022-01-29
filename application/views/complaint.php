@@ -100,7 +100,7 @@
 				</li>
 			</ul>
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="margin-right: 10px;">
 				<img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.15752-9/272201367_471247244439772_6526739748527625727_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeGeTVMenle2pD5SaOoC4P7MsIH9d3l36h-wgf13eXfqH58705ubLYshfn7SH4g0FyABT2IFnaAuUcAH6U7FwyE5&_nc_ohc=Mp-6EfspNR8AX9N0yYu&_nc_ht=scontent.fmnl4-1.fna&oh=03_AVKm2AWTaEegBP6OP_4puQMLsNp1w4pYqteom4brwBTvfQ&oe=620FFABB" width="50" height="30" alt="Messages">
 			</button>
 
@@ -205,7 +205,7 @@
 			</form>
 		</div><br/>
 		<div style="margin-bottom: 30px;">
-			<img class="d-block w-100" src="https://z-p3-cdn.fbsbx.com/v/t59.2708-21/271999650_425731435903262_4126454323112353862_n.gif?_nc_cat=111&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeEHcjyN84ExE-6leIuhrAGSt_1IxSk6v7K3_UjFKTq_ssV2M0AsU4azyMCpx9a2QkiXwVlura4vdOtZOJEMkEiA&_nc_ohc=yU2c--_wPwwAX-eqdJd&tn=5LueTjqJJ-K-Kf1t&_nc_ht=z-p3-cdn.fbsbx.com&oh=03_AVKu7jWAy5rZW_K95-Dr_fkzN33IpkkksylnucxBJnFiBQ&oe=61EDA935" alt="First slide" height="500px">
+			<img class="d-block w-100" src="<?php echo base_url(); ?>images/emergency.gif" alt="First slide" height="500px">
 		</div>
 		
 	</div>

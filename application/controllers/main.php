@@ -280,11 +280,13 @@ class Main extends CI_Controller{
 
 			$data["consti_data"] = $this->main_model->permit_datas($id);
 			$data["fetch_data"] = $this->main_model->fetch_data_permit();
+			$_SESSION['success'] = 'Status change successfully';
 			$this->load->view("admin_permit", $data);
 		}
 		else{
 			$data["consti_data1"] = $this->main_model->clearance_datas($id);
 			$data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+			$_SESSION['success'] = 'Status change successfully';
 			$this->load->view("admin_clearance", $data);
 		}
 	}
@@ -310,6 +312,7 @@ class Main extends CI_Controller{
 				$this->main_model->permit_response($response_data, $type);
 				$data["consti_data"] = $this->main_model->permit_datas($id);
 				$data["fetch_data"] = $this->main_model->fetch_data_permit();
+				$_SESSION['success'] = 'Message sent successfully';
 				$this->load->view("admin_permit", $data);
 			}
 			else{
@@ -322,6 +325,7 @@ class Main extends CI_Controller{
 				$this->main_model->permit_response($response_data, $type);
 				$data["consti_data1"] = $this->main_model->clearance_datas($id);
 				$data["fetch_data1"] = $this->main_model->fetch_data_clearance();
+				$_SESSION['success'] = 'Message sent successfully';
 				$this->load->view("admin_clearance", $data);
 			}
 
@@ -481,6 +485,7 @@ class Main extends CI_Controller{
 		$this->main_model->rent_status($id, $permit_status);
 		$data["consti_data"] = $this->main_model->rent_data($id);
 		$data["fetch_data"] = $this->main_model->fetch_data_rent();
+		$_SESSION['success'] = 'Status change successfully';
 		$this->load->view("admin_book_rent", $data);
 	}
 
@@ -502,6 +507,7 @@ class Main extends CI_Controller{
 			$id = $this->uri->segment(4);
 			$data["consti_data"] = $this->main_model->rent_data($id);
     	$data["fetch_data"] = $this->main_model->fetch_data_rent();
+			$_SESSION['success'] = 'Message sent successfully';
 			$this->load->view("admin_book_rent", $data);
 
 		}else{
