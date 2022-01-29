@@ -160,7 +160,7 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active" style="height: 550px;">
-					<img class="d-block w-100" src="images/img_carousel1.gif" alt="First slide">
+					<img class="d-block w-100" src= <?php echo images/"img_carousel1.gif"; ?> alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
 					<img class="d-block w-100 img-responsive" src="https://cdn.fbsbx.com/v/t59.2708-21/271904333_1142611166277059_5320836333678772910_n.gif?_nc_cat=110&ccb=1-5&_nc_sid=041f46&_nc_eui2=AeEzmiSubFsU4LwJDFbG0TuQsO-Dmgat3UGw74OaBq3dQduSZ2ZZpaOPaLA5WTf6QENxiggXFEQNDigGFjP0cNru&_nc_ohc=sVrTIJ30t9UAX9zfppQ&tn=WXt5rCAgNWJXHn1P&_nc_ht=cdn.fbsbx.com&oh=03_AVIT801bpgKeWRU_VT0IGevj10736YT0uZDpIpLIZE1g_g&oe=61EED81E" alt="Second slide">
