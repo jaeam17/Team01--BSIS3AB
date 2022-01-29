@@ -205,7 +205,7 @@
 			</form>
 		</div><br/>
 		<div style="margin-bottom: 30px;">
-			<img class="d-block w-100" src="<?php echo base_ur1(); ?>images/emergency.gif" alt="First slide" height="500px">
+			<img class="d-block w-100" src="<?php echo base_url(); ?>images/emergency.gif" alt="First slide" height="500px">
 		</div>
 		
 	</div>
