@@ -126,7 +126,7 @@
 							<tr>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Email</th>
+								<th>Owner Name</th>
 								<th>Status</th>
 							</tr>
 						</thead>
