@@ -197,9 +197,9 @@
 						<span class="text-danger"><?php echo form_error('bus_nature'); ?></span>
 					</div>
 					<div class="form-group col-md-6" style="padding-left: 0px;">
-						<label>Email</label>
-						<input type="text" name="email" class="form-control" placeholder="Email" required>
-						<span class="text-danger"><?php echo form_error('email'); ?></span>
+						<label>Owner's Name</label>
+						<input type="text" name="owner_name" class="form-control" placeholder="Surname, First Name, M.I" required>
+						<span class="text-danger"><?php echo form_error('owner_name'); ?></span>
 					</div>
 				</div>
 				<div class="form-row">

@@ -207,7 +207,7 @@ class Main extends CI_Controller{
 		$this->form_validation->set_rules('bus_name', 'Business Name', 'required');
 			$this->form_validation->set_rules('bus_address', 'Business Address', 'required');
 			$this->form_validation->set_rules('bus_nature', 'Business Nature', 'required');
-			$this->form_validation->set_rules('email', 'Email Address', 'required');
+			$this->form_validation->set_rules('owner_name', 'Owner Name', 'required');
 			$this->form_validation->set_rules('ownership_type', 'Ownership Type', 'required');
 			$this->form_validation->set_rules('bir_tin', 'BIR TIN', 'required');
 			$this->form_validation->set_rules('date', 'Date', 'required');
@@ -218,7 +218,7 @@ class Main extends CI_Controller{
 				$bsn_name = $_POST['bus_name'];
 				$bsn_address = $_POST['bus_address'];
 				$bsn_nature = $_POST['bus_nature'];
-				$email = $_POST['email'];
+				$owner_name = $_POST['owner_name'];
 				$type_owner = $_POST['ownership_type'];
 				$bir_tin = $_POST['bir_tin'];
 				$date = $_POST['date'];
@@ -230,7 +230,7 @@ class Main extends CI_Controller{
 					"consti_id"            =>$consti_id,
 					"first_name"           =>$first_name,
 					"last_name"             =>$last_name,
-					"email"            =>$email,
+					"owner_name"            =>$owner_name,
 					"bsn_option"         =>$bsn_option,
 					"bsn_name"          =>$bsn_name,
 					"bsn_address"              =>$bsn_address,
