@@ -108,7 +108,7 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <h5 style="color: white; font-size: 17px; padding-right: 10px; margin: 0px;"><?php echo $_SESSION['email']; ?></h5>
+          <h5 style="color: white; font-size: 17px; padding-right: 10px; margin: 0px;"><?php echo $_SESSION['owner_name']; ?></h5>
           <a href="<?php echo base_url(); ?>main/logout" class="btn btn-success">Logout</a>
         </form>
       </div>
@@ -126,7 +126,7 @@
 							<tr>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Email</th>
+								<th>Owner Name</th>
 								<th>Status</th>
 							</tr>
 						</thead>
@@ -139,7 +139,7 @@
 										<tr>
                       <td><a href="<?php echo base_url(); ?>main/permit_data/<?php echo $row->id ?>"><?php echo $row->first_name; ?></a</td>
 											<td><?php echo $row->last_name; ?></td>
-											<td><?php echo $row->email; ?></td>
+											<td><?php echo $row->owner_name; ?></td>
 											<td><?php echo $row->status; ?></td>
 										</tr>
 									</tbody>
@@ -179,8 +179,8 @@
                     <b><label>Last Name</label></b>
                   </div>
                   <div class="col-md-6">
-                    <?php echo $row1->email;?><br/>
-                    <b><label>Email</label></b>
+                    <?php echo $row1->owner_name;?><br/>
+                    <b><label>Owner Name</label></b>
                   </div>
                 </div>
                 <div class="row">
