@@ -108,7 +108,7 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <h5 style="color: white; font-size: 17px; padding-right: 10px; margin: 0px;"><?php echo $_SESSION['owner_name']; ?></h5>
+          <h5 style="color: white; font-size: 17px; padding-right: 10px; margin: 0px;"><?php echo $_SESSION['email']; ?></h5>
           <a href="<?php echo base_url(); ?>main/logout" class="btn btn-success">Logout</a>
         </form>
       </div>
@@ -126,7 +126,7 @@
 							<tr>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Owner Name</th>
+								<th>Email</th>
 								<th>Status</th>
 							</tr>
 						</thead>
