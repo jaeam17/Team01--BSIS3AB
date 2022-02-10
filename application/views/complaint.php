@@ -158,13 +158,15 @@
 				At Barangay Monteverde, we work to improve the general well-being of the community. We invite everyone in our Barangay to use the complaint feature of our E-Barangay System to assist us in keeping our community peaceful and safe. Feeling comfortable at home, on the street, or at work is important to community safety. It is concerned with the quality of life and the ability to pursue and gain the greatest advantages from your home, social, and economic lives without fear of crime and disorder. Please click the button below and use the form to submit your complaint.
 			</p>
 			<?php if(isset($_SESSION['error'])){ ?>
-										<div class="alert alert-danger" role="alert">
+										<div class="alert alert-danger alert-dismissable" role="alert">
+											<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 											<?php echo $_SESSION['error']; ?>
 											<?php unset($_SESSION['error']); ?>
 										</div>
 									<?php   } ?>
 									<?php if(isset($_SESSION['success'])){ ?>
-										<div class="alert alert-success" role="alert">
+										<div class="alert alert-success alert-dismissable" role="alert">
+											<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 											<?php echo $_SESSION['success']; ?>
 											<?php unset($_SESSION['success']); ?>
 										</div>
@@ -181,6 +183,7 @@
                             <p class="text-justify" style="font-size: 17px;">
                                 Call the emergency hotlines listed below if you have a complaint about a situation that barangay authorities are unable to handle.
                             </p>
+												
 					<!-- Modal -->
 					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">

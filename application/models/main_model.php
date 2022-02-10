@@ -228,4 +228,9 @@ class Main_model extends CI_Model{
 
 		$this->db->insert("response", $response_data);
 	}
+
+	public function complaint_response($response_data){
+
+		$this->db->insert("response", $response_data);
+	}
 }

@@ -157,13 +157,15 @@
 
 			<form action="<?php echo base_url(); ?>main/clearance_validation" method="post">
 				<?php if(isset($_SESSION['success'])){ ?>
-					<div class="alert alert-success" role="alert">
+					<div class="alert alert-success alert-dismissable" role="alert">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 						<?php echo $_SESSION['success']; ?>
 						<?php unset($_SESSION['success']); ?>
 					</div>
 				<?php   } ?>
 				<?php if(isset($_SESSION['error'])){ ?>
-					<div class="alert alert-danger" role="alert">
+					<div class="alert alert-danger alert-dismissable" role="alert">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 						<?php echo $_SESSION['error']; ?>
 						<?php unset($_SESSION['error']); ?>
 					</div>

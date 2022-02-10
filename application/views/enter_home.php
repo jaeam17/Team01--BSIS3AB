@@ -160,7 +160,6 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active" style="height: 550px;">
-<<<<<<< HEAD
 					<img class="d-block w-100" src="<?php echo base_url(); ?>images/img_carousel1.gif" alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
@@ -168,7 +167,6 @@
 				</div>
 				<div class="carousel-item" style="height: 550px;">
 					<img class="d-block w-100 img-responsive" src="<?php echo base_url(); ?>images/img_carousel3.gif" alt="Third slide">
-=======
 					<img class="d-block w-100" src= "<?php echo base_url(); ?>images/img_carousel1.gif" alt="First slide">
 				</div>
 				<div class="carousel-item" style="height: 550px;">
@@ -176,7 +174,6 @@
 				</div>
 				<div class="carousel-item" style="height: 550px;">
 					<img class="d-block w-100" src= "<?php echo base_url(); ?>images/img_carousel3.gif" alt="Third slide">
->>>>>>> 867018dd5e38a5ed409afd143206ccbc73d9905c
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

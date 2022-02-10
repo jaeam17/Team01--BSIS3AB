@@ -153,11 +153,19 @@
                         </button>
                       </div>
                       <div class="modal-body" style="text-align: left;">
-                        <?php echo $row->complaints; ?>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        <b>Complaint</b><br/>
+                        <?php echo $row->complaints; ?><br/><hr>
+                        <b>Sent Message</b>
+                        <form action="<?php echo base_url(); ?>main/complaint_response/<?php echo $row->consti_id ?>/<?php echo $row->id ?>" method="post">
+                          <div class="col-sm" style="padding-left: 0px; padding-bottom: 5px;">
+                            <textarea name="response" id="complaint" rows="3" class="form-control" style="resize: none;" placeholder="Sent Message to this user" required></textarea>
+                          </div>
+                          <div class="modal-footer">
+                            <input type="submit" name="submit" value="Send" class="btn btn-primary">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>

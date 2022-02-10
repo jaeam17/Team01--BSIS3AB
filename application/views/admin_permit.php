@@ -1,3 +1,108 @@
+<?php
+use setasign\Fpdi\Fpdi;
+if(array_key_exists('generate', $_POST)){
+  require_once('FPDF/fpdf/fpdf.php');
+  require_once('FPDF/fpdi/src/autoload.php');
+
+  $bir_tin = $_SESSION['bir_tin'];
+  unset($_SESSION['bir_tin']);
+  $business_name = $_SESSION['business_name'];
+  unset($_SESSION['business_name']);
+  $bsn_address = $_SESSION['bsn_address'];
+  unset($_SESSION['bsn_address']);
+  $business_nature = $_SESSION['business_nature'];
+  unset($_SESSION['business_nature']);
+  $owner_name = $_SESSION['owner_name'];
+  unset($_SESSION['owner_name']);
+  $type_owner = $_SESSION['type_owner'];
+  unset($_SESSION['type_owner']);
+  $date = date("jS \of M Y");
+
+  if($_SESSION['bsn_option'] == "New Business"){
+    // initiate FPDI
+    $pdf = new Fpdi();
+    // add a page
+    $pdf->AddPage();
+    // set the source file
+    $pdf->setSourceFile('documents/buspermit_new.pdf');
+    // import page 1
+    $tplIdx = $pdf->importPage(1);
+    // use the imported page and place it at position 10,10 with a width of 100 mm
+    $pdf->useTemplate($tplIdx);
+    $pdf->SetTitle("Business Permit New Business");
+
+    // now write some text above the imported page
+    $pdf->SetFont('Helvetica');
+    // $pdf->SetTextColor(255, 0, 0);
+    $pdf->SetXY(45, 102);
+    $pdf->Write(0, $bir_tin);
+
+    $pdf->SetXY(70, 159);
+    $pdf->Write(0, $business_name);
+
+    $pdf->SetXY(70, 166);
+    $pdf->Write(0, $bsn_address);
+
+    $pdf->SetXY(73, 174);
+    $pdf->Write(0, $business_nature);
+
+    $pdf->SetXY(70, 181);
+    $pdf->Write(0, $owner_name);
+    
+    $pdf->SetXY(76, 189);
+    $pdf->Write(0, $type_owner);
+
+    $pdf->SetXY(62, 205);
+    $pdf->Write(0, $date);
+
+    $pdf->Output('I','Barangay_Business_Permit_New_Business.pdf');
+  }
+  else{
+    // initiate FPDI
+    $pdf = new Fpdi();
+    // add a page
+    $pdf->AddPage();
+    // set the source file
+    $pdf->setSourceFile('documents/buspermit_renewal.pdf');
+    // import page 1
+    $tplIdx = $pdf->importPage(1);
+    // use the imported page and place it at position 10,10 with a width of 100 mm
+    $pdf->useTemplate($tplIdx);
+    $pdf->SetTitle("Business Permit Renewal");
+
+    // now write some text above the imported page
+    $pdf->SetFont('Helvetica');
+    // $pdf->SetTextColor(255, 0, 0);
+    $pdf->SetXY(45, 102);
+    $pdf->Write(0, $bir_tin);
+
+    $pdf->SetXY(65, 129);
+    $pdf->Write(0, $business_name);
+
+    $pdf->SetXY(65, 135);
+    $pdf->Write(0, $bsn_address);
+
+    $pdf->SetXY(70, 141);
+    $pdf->Write(0, $business_nature);
+
+    $pdf->SetXY(65, 147);
+    $pdf->Write(0, $owner_name);
+    
+    $pdf->SetXY(70, 153);
+    $pdf->Write(0, $type_owner);
+
+    $pdf->SetXY(65, 210);
+    $pdf->Write(0, $date);
+
+    $pdf->Output('I','Barangay_Business_Permit_Renewal.pdf');
+  }
+  
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,34 +284,41 @@
                     <b><label>Last Name</label></b>
                   </div>
                   <div class="col-md-6">
+                    <?php $_SESSION['owner_name'] = $row1->owner_name; ?>
                     <?php echo $row1->owner_name;?><br/>
                     <b><label>Owner Name</label></b>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-3">
+                    <?php $_SESSION['business_name'] = $row1->bsn_name; ?>
                     <?php echo $row1->bsn_name;?><br/>
                     <b><label>Business Name</label></b>
                   </div>
                   <div class="col-md-3">
+                    <?php $_SESSION['business_nature'] = $row1->bsn_nature; ?>
                     <?php echo $row1->bsn_nature;?><br/>
                     <b><label>Business Nature</label></b>
                   </div>
                   <div class="col-md-3">
+                    <?php $_SESSION['type_owner'] = $row1->type_owner; ?>
                     <?php echo $row1->type_owner;?><br/>
                     <b><label>Type Owner</label></b>
                   </div>
                   <div class="col-md-3">
+                    <?php $_SESSION['bir_tin'] = $row1->bir_tin; ?>
                     <?php echo $row1->bir_tin;?><br/>
                     <b><label>BIR TIN</label></b>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
+                    <?php $_SESSION['bsn_address'] = $row1->bsn_address; ?>
                     <?php echo $row1->bsn_address;?><br/>
                     <b><label>Business Address</label></b>
                   </div>
                   <div class="col-md-3">
+                    <?php $_SESSION['bsn_option'] = $row1->bsn_option; ?>
                     <?php echo $row1->bsn_option;?><br/>
                     <b><label>Type of Permit Application</label></b>
                   </div>
@@ -215,10 +327,14 @@
                     <b><label>Date</label></b>
                   </div>
                 </div>
-                <div class="btn" style="padding-left: 0px; margin-top: 20px;">
-                  <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/approve/permit" class="btn btn-sm btn-success">Approve</a>
-			            <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/decline/permit" class="btn btn-sm btn-danger">Decline</a>
-                </div><br/>
+                
+                <form method="post" target="_blank">
+                  <div class="btn" style="padding-left: 0px; margin-top: 20px;">
+                    <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/approve/permit" class="btn btn-sm btn-success">Approve</a>
+                    <a href="<?php echo base_url(); ?>main/permit_approve/<?php echo $row1->id ?>/decline/permit" class="btn btn-sm btn-danger" style="margin-right: 125px;">Decline</a>
+                    <input type="submit" name="generate" value="Generate Permit" class="btn btn-sm btn-primary" target="_blank">
+                  </div>
+                </form>
 
                 <div class="form-group-row" style="padding-top: 8px; padding-bottom: 10px;">
                   <form action="<?php echo base_url(); ?>main/permit_response/<?php echo $row1->consti_id ?>/Permit/<?php echo $row1->id ?>" method="post">

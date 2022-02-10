@@ -41,10 +41,6 @@ if(array_key_exists('generate', $_POST)){
 
   $pdf->Output('I','Barangay_Clearance.pdf');
 }
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

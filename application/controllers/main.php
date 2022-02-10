@@ -12,14 +12,16 @@ class Main extends CI_Controller{
 	}
 
 	public function index(){
-
-		// $this->login();
-		// $this->register();
-
-		$this->load->view("home");
+		$this->load->view("welcome_view");
 
 	}
+	public function welcome_view(){
+		$this->load->view("welcome_view");
+	}
 
+	public function contact_us(){
+		$this->load->view("contact_us");
+	}
 	public function login(){
 		$this->load->view("home");
 	}
@@ -143,6 +145,32 @@ class Main extends CI_Controller{
 	public function admin_complaint(){
 		$data["fetch_data"] = $this->main_model->fetch_data_complaint();
 		$this->load->view("admin_complaint", $data);
+	}
+
+	public function complaint_response(){
+
+		$this->form_validation->set_rules('response', 'Response', 'required');
+
+		if($this->form_validation->run()){
+
+			$consti_id = $this->uri->segment(3);
+			$response = $_POST['response'];
+			$type = "Complaint";
+			$response_data = array(
+				"consti_id" => $consti_id,
+				"response_type" => $type,
+				"response" => $response
+			);
+			$this->main_model->complaint_response($response_data);
+			$id = $this->uri->segment(4);
+    	$data["fetch_data"] = $this->main_model->fetch_data_complaint();
+			$this->load->view("admin_complaint", $data);
+
+		}else{
+			$id = $this->uri->segment(4);
+    	$data["fetch_data"] = $this->main_model->fetch_data_complaint();
+			$this->load->view("admin_complaint", $data);
+		}
 	}
 
 	public function delete_complaint(){
